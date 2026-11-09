@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS Simulator with Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ระบบจำลองเส้นทาง GPS</h1>
+        
+        
+        <div class="map-container">
+            <canvas id="mapCanvas" width="400" height="300"></canvas>
+        </div>
+        
+        
+        <div id="input-section">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="start">จุดต้นทาง:</label>
+                    <select id="start">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="end">จุดปลายทาง:</label>
+                    <select id="end">
+                        <option value="A">A</option>
+                        <option value="B" selected>B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+            </div>
+            <button onclick="calculateRoute()">คำนวณเส้นทาง</button>
+        </div>
+
+        
+        <div id="result-section" class="hidden">
+            <div class="result-box">
+                <p id="distance-output"></p>
+                <p id="path-output"></p>
+            </div>
+            
+            <div class="loop-question">
+                <p>คุณต้องการเลือกต้นทาง-ปลายทางคู่อื่นอีกหรือไม่?</p>
+                <div class="btn-group">
+                    <button onclick="resetApp()" class="btn-yes">ค้นหาจุดอื่นต่อ</button>
+                    <button onclick="exitApp()" class="btn-no">ไม่มี ออกจากโปรแกรม</button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="exit-section" class="hidden">
+            <h2>ออกจากโปรแกรมเรียบร้อยแล้ว</h2>
+            <p>ขอบคุณที่ใช้งานระบบจำลอง GPS</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
